@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zn-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="DD" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="" />
+  </head>
+  <body>
+    <div class="banner">歡迎光臨，請輸入帳號密碼</div>
+    <div class="block1">
+      <div class="login">登入系統</div>
+      <form action="/signin" , method="POST">
+        帳號 <input type="text" name="account" class="account" />
+        <br />
+        密碼 <input type="password" name="password" class="password" />
+        <br />
+        <button>登入</button>
+        <hr />
+      </form>
+      <form id="calculation" onsubmit="urlCreate()" method="POST">
+        <div class="cal">計算正整數的平方</div>
+        正整數 <input type="text" name="num" class="num" />
+        <br />
+        <input class="cal_button" type="submit" value="計算" />
+      </form>
+    </div>
+  </body>
+</html>
+
+<!-- Styling -->
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 24px;
+    font-family: Arial, Helvetica, 微軟正黑體;
+  }
+
+  .banner {
+    background-color: #223343;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    width: 100%;
+    height: 100px;
+  }
+
+  .block1 {
+    text-align: center;
+  }
+
+  .login,
+  .cal {
+    font-weight: bold;
+    margin-top: 30px;
+  }
+
+  .account,
+  .password,
+  .num {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  button,
+  .cal_button {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+</style>
+
+<!-- JavaScript -->
+<script>
+  function urlCreate() {
+    let action_src = "/square/" + document.getElementsByName("num")[0].value;
+    let form = document.getElementById("calculation");
+    form.action = action_src;
+    return;
+  }
+</script>
